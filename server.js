@@ -15,7 +15,8 @@ function readTodosFromFile() {
 }
 
 app.get("/todos", (req, res) => {
-
+    const result = readTodosFromFile();
+    res.json(result);
 });
 
 app.post("/todos", (req, res) => {
