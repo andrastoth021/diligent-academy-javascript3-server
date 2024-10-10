@@ -24,7 +24,18 @@ app.post("/todos", (req, res) => {
 });
 
 app.put("/todos/:id", (req, res) => {
+    const { id } = req.params;
+    const updatedTodo = req.body;
+
+    const todos = readTodosFromFile();
+    const todoIndex = todos.findIndex(todo => todo.id === parseInt(id));
     
+    if (todoIndex !== -1) {
+        todos[todoIndex] = { ...todos[todoIndex], ...updatedTodo }
+        writeTodoToFile(todos);
+        res.json(todos[todoIndex]);
+    }
+    else res.status(404).json({ message: "Couldn't find a todo with this ID!" });
 });
 
 app.delete("/todos/:id", (req, res) => {
