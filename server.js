@@ -14,7 +14,12 @@ function readTodosFromFile() {
   return JSON.parse(fs.readFileSync("data.json", "utf8"));
 }
 
-app.get("/todos", (req, res) => {});
+
+app.get("/todos", (req, res) => {
+    const result = readTodosFromFile();
+    res.json(result);
+});
+
 
 app.post("/todos", (req, res) => {
   const todos = readTodosFromFile();
