@@ -1,10 +1,18 @@
 [
   {
     "id": 1,
+    "task": "Clone the TODO application's repository!"
+  },
+  {
+    "id": 2,
     "task": "Create a TODO application!"
   },
   {
+    "id": 3,
+    "task": "Make a frontend to the TODO application!"
+  },
+  {
     "task": "frgvrf",
-    "id": 2
+    "id": 4
   }
 ]
